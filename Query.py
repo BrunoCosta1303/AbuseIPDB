@@ -36,3 +36,4 @@ response = requests.request(method='GET', url=url, headers=headers, params=query
 # Formatted output
 decodedResponse = json.loads(response.text)
 print (json.dumps(decodedResponse, sort_keys=True, indent=4))
+print (json.dumps(decodedResponse['abuseConfidenceScore'], sort_keys=True, indent=4)) #Need to fix 
