@@ -2,8 +2,8 @@
 #                                                                                              #
 # Inspired by:                                                                                 #
 #  https://www.abuseipdb.com/api                                                               #
-#  https://docs.abuseipdb.com/#introduction                                                    #                                        #
-#                                                                                              #
+#  https://docs.abuseipdb.com/#introduction                                                    #                                        
+#  https://www.youtube.com/watch?v=9N6a-VLBa2I                                                 #
 #                                                                                              #
 ################################################################################################
 
@@ -34,6 +34,14 @@ headers = {
 response = requests.request(method='GET', url=url, headers=headers, params=querystring)
 
 # Formatted output
-decodedResponse = json.loads(response.text)
-print (json.dumps(decodedResponse, sort_keys=True, indent=4))
-print (json.dumps(decodedResponse['abuseConfidenceScore'], sort_keys=True, indent=4)) #Need to fix 
+# Solutions from theses guys here https://www.geeksforgeeks.org/python-nested-dictionary/
+resp = json.loads(response.text)
+
+#Convert resp in variables for further actions 
+ipA = resp['data']['ipAddress']
+print(resp['data']['abuseConfidenceScore'])
+print(resp['data']['countryCode'])
+print(resp['data']['isp'])
+print(resp['data']['domain'])
+print(resp['data']['totalReports'])
+
